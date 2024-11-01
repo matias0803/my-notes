@@ -1,0 +1,241 @@
+/* Base styles and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f4f8; /* Color de fondo más suave */
+    color: #333;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007acc; /* Color azul */
+}
+
+.nav-items {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Search functionality */
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db; /* Color de borde gris claro */
+    border-radius: 4px;
+    width: 300px;
+    font-size: 1rem;
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #007acc; /* Color de borde en foco */
+}
+
+.search-button {
+    padding: 0.5rem 1rem;
+    background-color: #007acc; /* Color azul */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #005f99; /* Color azul más oscuro */
+}
+
+/* New Note Button */
+.new-note-btn {
+    padding: 0.5rem 1rem;
+    background-color: #28a745; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.new-note-btn:hover {
+    background-color: #218838; /* Color verde más oscuro */
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Notes grid */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Note card */
+.note-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el ratón */
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.note-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Color del texto */
+}
+
+.note-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.25rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.3s;
+}
+
+.edit-btn {
+    background-color: #e2e8f0; /* Color de fondo gris claro */
+    color: #333; /* Color de texto */
+}
+
+.edit-btn:hover {
+    background-color: #cbd5e0; /* Color gris más oscuro */
+}
+
+.delete-btn {
+    background-color: #ff6b6b; /* Color rojo */
+    color: white; /* Color de texto blanco */
+}
+
+.delete-btn:hover {
+    background-color: #e63946; /* Color rojo más oscuro */
+}
+
+.note-date {
+    font-size: 0.875rem;
+    color: #666; /* Color gris para la fecha */
+    margin-bottom: 0.75rem;
+}
+
+.note-content {
+    color: #444; /* Color del texto */
+    font-size: 0.95rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .new-note-btn {
+        width: 100%;
+    }
+
+    .notes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+html, body {
+    height: 100%; /* Asegura que el cuerpo y html ocupen el 100% de la altura */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+}
+
+.container {
+    flex: 1; /* Permite que el contenedor principal ocupe el espacio restante */
+    padding: 20px; /* Espaciado alrededor del contenido principal */
+}
+
+.notes-grid {
+    display: flex; /* Organiza las notas en fila */
+    flex-wrap: wrap; /* Permite que las notas se ajusten a la siguiente línea si no hay suficiente espacio */
+    gap: 1.5rem; /* Espacio entre las notas */
+}
+
+.note-card {
+    flex: 1 0 300px; /* Permite que las notas tengan un tamaño mínimo de 300px y se expandan si hay espacio */
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    background-color: #007bff; /* Color de fondo azul */
+    color: #ffffff; /* Color del texto */
+    padding: 20px 0;
+    text-align: center;
+}

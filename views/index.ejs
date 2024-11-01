@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog Notes</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">My Notes</div>
+        <div class="nav-items">
+            <button class="new-note-btn" onclick="window.location.href='/new'">+ New Note</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="notes-grid">
+            <!-- Example Note 1 -->
+            <% notes.forEach(note=> { %>
+            <article class="note-card">
+                <div class="note-header">
+                    <h2><%= note.title %></h2>
+                    <div class="note-actions">
+                        <button class="edit-btn" onclick="window.location.href='/edit/<%= note.id %>'">Edit</button>
+                        <button class="delete-btn" onclick="window.location.href='api/notes/delete/<%= note.id %>'" >Delete</button>
+                    </div>
+                </div>
+                <p class="note-date">Type: <%= note.noteType %></p>
+                <p class="note-content"><%= note.noteText %></p>
+            </article>
+
+            <% }); %>
+            
+        </div>
+    </main>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 My Blog Notes. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank" class="social-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-link">LinkedIn</a>
+                <a href="https://twitter.com/yourprofile" target="_blank" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+    
+
+
+</body>
+</html>
